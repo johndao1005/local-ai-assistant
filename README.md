@@ -102,7 +102,7 @@ local-ai-assistant/
 │   │   └── manager.py          # Knowledge management
 │   └── connectivity/           # Connectivity features
 │       ├── __init__.py
-│       ├── search.py           # Web search implementation
+│       ├── search.py           # Web search implementat  ion
 │       ├── agent_discovery.py  # Finds other agents on network
 │       └── socket_manager.py   # Handles agent communication
 │
@@ -127,6 +127,35 @@ local-ai-assistant/
 ```
 
 (Coming soon)
+
+### Running the Local AI Assistant Project
+
+To start running this local AI assistant project, follow these steps:
+
+Step 1: Set Up the Environment
+First, install the required Python dependencies:
+
+Step 2: Run the Setup Script
+The project includes a setup script that will:
+
+Create a .env file with default settings
+Set up the model directory
+Initialize the SQLite database
+Download the LLM model (optional)
+Run the setup script:
+
+When prompted, choose whether to download the model. The setup will download the Mistral 7B Instruct model (approximately 4GB) if you answer 'y'.
+
+Step 3: Start the Application
+After completing the setup, start the Flask application:
+
+The application will be available at http://127.0.0.1:3000/ by default.
+
+Step 4: Access the Web Interface
+Open your web browser and navigate to:
+
+http://127.0.0.1:3000/
+You'll see the chat interface where you can interact with the AI assistant.
 
 ## Technical Considerations
 

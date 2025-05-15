@@ -5,6 +5,7 @@ This file initializes the Flask application and sets up all routes and extension
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 import os
+import uuid
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -16,6 +17,16 @@ from config import config_by_name
 # Create Flask app
 app = Flask(__name__)
 app.config.from_object(config_by_name[os.getenv('FLASK_ENV', 'development')])
+
+# Generate unique agent ID if not set
+if 'AGENT_ID' not in app.config:
+    app.config['AGENT_ID'] = str(uuid.uuid4())[:8]
+
+# Set default agent name if not set
+if 'AGENT_NAME' not in app.config:
+    app.config['AGENT_NAME'] = "Local Assistant"
+
+# Set up Socket.IO
 socketio = SocketIO(app)
 app.app_context().push()
 # Initialize database
@@ -99,4 +110,4 @@ def handle_message(data):
     socketio.emit('response', {'response': response})
 
 if __name__ == '__main__':
-    socketio.run(app, debug=app.config['DEBUG'])
+    socketio.run(app, host='0.0.0.0', port=app.config['PORT'], debug=app.config['DEBUG'])

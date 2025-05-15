@@ -13,6 +13,7 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev_secret_key')
     DEBUG = False
     TESTING = False
+    PORT = int(os.getenv('PORT', 3000)) # due to conflict with other services
     
     # Model settings
     MODEL_PATH = os.path.join('static', 'models', 'mistral-7b-instruct-v0.2.Q4_K_M.gguf')
