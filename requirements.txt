@@ -1,0 +1,16 @@
+Flask==2.3.3
+Flask-SocketIO==5.3.4
+llama-cpp-python==0.2.6
+SpeechRecognition==3.10.0
+pyttsx3==2.90
+gTTS==2.3.2
+requests==2.31.0
+beautifulsoup4==4.12.2
+python-dotenv==1.0.0
+tqdm==4.65.0
+pydub==0.25.1
+pyaudio==0.2.13
+numpy==1.24.4
+pandas==2.0.3
+pillow==10.0.0
+openai==0.27.8
